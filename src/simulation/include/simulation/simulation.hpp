@@ -68,7 +68,7 @@ private:
   const double pressure_sensor_mean_ = 0.0;
   double pressure_sensor_stddev_ = 0.002;   // in bar (2mbar)
   std::default_random_engine generator_;
-  std::normal_distribution < double > pressure_sensor_dist_;  // {pressure_sensor_mean_, pressure_sensor_stddev_};
+  std::normal_distribution<double> pressure_sensor_dist_{pressure_sensor_mean_, pressure_sensor_stddev_};
 
   // Piston
   double piston_setpoint_ = V_piston_max_;  // Desired piston volume in cubic meters
