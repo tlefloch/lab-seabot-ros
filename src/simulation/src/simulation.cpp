@@ -23,7 +23,7 @@ void Simulation::simulate_physics(std::chrono::milliseconds dt)
 
 void Simulation::simulate_pressure_sensor()
 {
-  pressure_m_ = abs_pressure_ * 1e-5 + pressure_sensor_dist_(generator_); // in Bar
+  pressure_m_ = abs_pressure_ + pressure_sensor_dist_(generator_); // in Bar
 }
 
 void Simulation::update_piston_setpoint(double piston_volume)
