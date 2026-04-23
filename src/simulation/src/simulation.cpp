@@ -18,7 +18,7 @@ void Simulation::simulate_physics(std::chrono::milliseconds dt)
   x_ = x_ + f() * dt.count() * 1e-3;  // Multiply by dt in seconds
 
   // Update absolute pressure based on depth
-  abs_pressure_ = zero_pressure_ + (density_ * g_physics_ * x_(0)) * 1e-5;
+  abs_pressure_ = zero_pressure_ + std::max(0.0,(density_ * g_physics_ * (-x_(0)))) * 1e-5;
 }
 
 void Simulation::simulate_pressure_sensor()
